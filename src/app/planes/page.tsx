@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Check, ArrowRight, Building2, Sparkles, ShieldCheck, Users, Zap } from "lucide-react";
+import { Check, ArrowRight, Building2, Sparkles, ShieldCheck, Users, Zap, Menu, X } from "lucide-react";
 import Link from "next/link";
 
 export default function PlanesPage() {
   const [esAnual, setEsAnual] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Precios base en UF
   const precios = {
@@ -50,13 +51,15 @@ export default function PlanesPage() {
               </span>
             </Link>
             
+            {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center gap-8">
               <Link href="/" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Inicio</Link>
               <Link href="/planes" className="text-primary border-b-2 border-primary pb-1 font-semibold text-sm">Planes y Precios</Link>
               <Link href="/corredores" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Para Corredores</Link>
             </div>
 
-            <div className="flex gap-4 items-center">
+            {/* Desktop Buttons */}
+            <div className="hidden md:flex gap-4 items-center">
               <Link href="/login" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">
                 Ingresar
               </Link>
@@ -67,8 +70,60 @@ export default function PlanesPage() {
                 Comenzar Gratis
               </Link>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl hover:bg-slate-100 transition-colors text-slate-600 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown Menu Drawer */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-20 left-0 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-lg px-6 py-6 flex flex-col gap-4 z-40 animate-fade-in">
+            <Link 
+              href="/" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-slate-700 hover:text-primary font-semibold py-2 border-b border-slate-100 text-sm"
+            >
+              Inicio
+            </Link>
+            <Link 
+              href="/planes" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-slate-700 hover:text-primary font-semibold py-2 border-b border-slate-100 text-sm"
+            >
+              Planes y Precios
+            </Link>
+            <Link 
+              href="/corredores" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-slate-700 hover:text-primary font-semibold py-2 border-b border-slate-100 text-sm"
+            >
+              Para Corredores
+            </Link>
+            <div className="flex flex-col gap-3 pt-2">
+              <Link 
+                href="/login" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-slate-700 hover:text-primary font-semibold text-center py-2.5 rounded-xl border border-slate-200 text-sm"
+              >
+                Ingresar
+              </Link>
+              <Link 
+                href="/registro" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="bg-primary text-white text-center py-2.5 rounded-xl font-semibold hover:bg-blue-700 transition-all text-sm shadow-md"
+              >
+                Comenzar Gratis
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Main Content Container - Positioned at relative z-10 */}

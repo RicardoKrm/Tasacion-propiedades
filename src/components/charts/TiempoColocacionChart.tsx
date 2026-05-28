@@ -2,16 +2,21 @@
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-const dataColocacion = [
-  { precioUF: 3000, dias: 30 },
-  { precioUF: 3100, dias: 45 },
-  { precioUF: 3174, dias: 60, recomendado: true },
-  { precioUF: 3300, dias: 120 },
-  { precioUF: 3400, dias: 180 },
-  { precioUF: 3500, dias: 240 },
-];
+interface TiempoColocacionChartProps {
+  valorVentaUF?: number;
+}
 
-export function TiempoColocacionChart() {
+export function TiempoColocacionChart({ valorVentaUF = 3174 }: TiempoColocacionChartProps) {
+  // Generar la curva de precios de forma relativa al precio UF calculado
+  const dataColocacion = [
+    { precioUF: Math.round(valorVentaUF * 0.90), dias: 30 },
+    { precioUF: Math.round(valorVentaUF * 0.95), dias: 45 },
+    { precioUF: valorVentaUF, dias: 60, recomendado: true },
+    { precioUF: Math.round(valorVentaUF * 1.05), dias: 120 },
+    { precioUF: Math.round(valorVentaUF * 1.10), dias: 180 },
+    { precioUF: Math.round(valorVentaUF * 1.15), dias: 240 },
+  ];
+
   return (
     <div className="w-full h-[250px]">
       <ResponsiveContainer width="100%" height="100%">
@@ -24,6 +29,7 @@ export function TiempoColocacionChart() {
             tick={{ fontSize: 12, fill: '#64748b' }} 
             dy={10}
             name="Precio (UF)"
+            tickFormatter={(value) => `${value.toLocaleString('es-CL')} UF`}
           />
           <YAxis 
             axisLine={false} 
@@ -36,7 +42,7 @@ export function TiempoColocacionChart() {
             contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
             labelStyle={{ fontWeight: 'bold', color: '#0f172a' }}
             formatter={(value: any) => [`${value} días`, 'Tiempo estimado']}
-            labelFormatter={(label) => `Precio: ${label} UF`}
+            labelFormatter={(label) => `Precio: ${Number(label).toLocaleString('es-CL')} UF`}
           />
           <Line 
             type="monotone" 

@@ -1,7 +1,12 @@
-import { Building2, Search, MapPin, BarChart3, Camera, ShieldCheck, ArrowRight, CheckCircle2 } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Building2, Search, MapPin, BarChart3, Camera, ShieldCheck, ArrowRight, CheckCircle2, Menu, X } from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-background">
       {/* Navigation */}
@@ -16,6 +21,8 @@ export default function Home() {
                 Valoriza
               </span>
             </div>
+            
+            {/* Desktop Navigation Links */}
             <div className="hidden md:flex items-center gap-8">
               <Link href="#inicio" className="text-slate-600 hover:text-primary font-medium transition-colors">Inicio</Link>
               <Link href="/planes" className="text-slate-600 hover:text-primary font-medium transition-colors">Planes</Link>
@@ -27,8 +34,60 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-2 rounded-xl hover:bg-slate-50 transition-colors text-slate-600 focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown Menu Drawer */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-20 left-0 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-lg px-6 py-6 flex flex-col gap-4 z-40 animate-fade-in">
+            <Link 
+              href="#inicio" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-slate-700 hover:text-primary font-semibold py-2 border-b border-slate-100 text-sm"
+            >
+              Inicio
+            </Link>
+            <Link 
+              href="/planes" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-slate-700 hover:text-primary font-semibold py-2 border-b border-slate-100 text-sm"
+            >
+              Planes
+            </Link>
+            <Link 
+              href="/corredores" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-slate-700 hover:text-primary font-semibold py-2 border-b border-slate-100 text-sm"
+            >
+              Para Corredores
+            </Link>
+            <div className="flex flex-col gap-3 pt-2">
+              <Link 
+                href="/login" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-slate-700 hover:text-primary font-semibold text-center py-2.5 rounded-xl border border-slate-200 text-sm"
+              >
+                Ingresar
+              </Link>
+              <Link 
+                href="/registro" 
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="bg-primary text-white text-center py-2.5 rounded-xl font-semibold hover:bg-blue-700 transition-all text-sm shadow-md"
+              >
+                Comenzar Gratis
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Hero Section */}
