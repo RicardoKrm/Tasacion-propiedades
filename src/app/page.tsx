@@ -17,7 +17,7 @@ export default function Home() {
               </span>
             </div>
             <div className="hidden md:flex items-center gap-8">
-              <Link href="#inicio" className="text-slate-600 hover:text-primary font-medium transition-colors">Inicio!!</Link>
+              <Link href="#inicio" className="text-slate-600 hover:text-primary font-medium transition-colors">Inicio</Link>
               <Link href="/planes" className="text-slate-600 hover:text-primary font-medium transition-colors">Planes</Link>
               <Link href="/corredores" className="text-slate-600 hover:text-primary font-medium transition-colors">Para Corredores</Link>
               <div className="flex items-center gap-4">

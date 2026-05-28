@@ -69,15 +69,15 @@ export default function CorredoresPage() {
   const currentModulo = modulos.find(m => m.id === activeTab) || modulos[0];
 
   return (
-    <div className="relative min-h-screen text-slate-800 font-sans overflow-x-hidden flex flex-col justify-between bg-slate-50">
-      {/* Background Video */}
-      <div className="absolute inset-0 -z-20 overflow-hidden">
+    <div className="relative min-h-screen text-slate-800 font-sans overflow-x-hidden flex flex-col justify-between bg-transparent">
+      {/* Background Video - Positioned at z-0 */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 w-auto h-auto"
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2"
         >
           <source src="/videos/VIDEO2.mp4" type="video/mp4" />
         </video>
@@ -85,14 +85,14 @@ export default function CorredoresPage() {
         <div className="absolute inset-0 bg-white/80 backdrop-blur-[5px]"></div>
       </div>
 
-      {/* Ambient soft colored blobs */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none opacity-50">
+      {/* Ambient soft colored blobs - Positioned at z-0 */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-50">
         <div className="absolute top-1/3 right-1/4 translate-x-1/2 w-[380px] h-[380px] bg-blue-100/40 rounded-full blur-[110px]"></div>
         <div className="absolute bottom-1/3 left-1/4 -translate-x-1/2 w-[420px] h-[420px] bg-emerald-100/30 rounded-full blur-[130px]"></div>
       </div>
 
-      {/* Header / Navbar (Light Theme Glass) */}
-      <header className="w-full z-50 border-b border-slate-200/60 bg-white/75 backdrop-blur-md">
+      {/* Header / Navbar (Light Theme Glass) - Positioned at relative z-50 */}
+      <header className="relative w-full z-50 border-b border-slate-200/60 bg-white/75 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="flex items-center gap-2 group">
@@ -105,7 +105,7 @@ export default function CorredoresPage() {
             </Link>
             
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Inicio!!</Link>
+              <Link href="/" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Inicio</Link>
               <Link href="/planes" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Planes y Precios</Link>
               <Link href="/corredores" className="text-primary border-b-2 border-primary pb-1 font-semibold text-sm">Para Corredores</Link>
             </div>
@@ -125,8 +125,8 @@ export default function CorredoresPage() {
         </div>
       </header>
 
-      {/* Main Content */}
-      <main className="flex-1 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex flex-col justify-center gap-20">
+      {/* Main Content - Positioned at relative z-10 */}
+      <main className="relative z-10 flex-1 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex flex-col justify-center gap-20">
         
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center pt-8">
@@ -145,7 +145,7 @@ export default function CorredoresPage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 href="/registro" 
-                className="bg-primary hover:bg-blue-755 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-xl hover:shadow-blue-500/20 transition-all flex items-center justify-center gap-2 active:scale-95 text-center"
+                className="bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-xl hover:shadow-blue-500/20 transition-all flex items-center justify-center gap-2 active:scale-95 text-center"
               >
                 Comenzar Gratis ahora
                 <ArrowRight className="w-5 h-5" />
@@ -161,7 +161,7 @@ export default function CorredoresPage() {
           </div>
 
           {/* Interactive Metric Cards (Showcase) */}
-          <div className="relative bg-white/80 border border-slate-200/80 p-6 sm:p-8 rounded-3xl backdrop-blur-xl hover:border-slate-350 transition-all duration-500 shadow-xl shadow-slate-200/40">
+          <div className="relative bg-white/85 border border-slate-200/80 p-6 sm:p-8 rounded-3xl backdrop-blur-xl hover:border-slate-350 transition-all duration-500 shadow-xl shadow-slate-200/40">
             <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-emerald-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-xl uppercase tracking-wider shadow-md flex items-center gap-1">
               <TrendingUp className="w-3.5 h-3.5" />
               +32% Exclusividad
@@ -364,7 +364,7 @@ export default function CorredoresPage() {
                   <div className="space-y-2.5">
                     <div className="border border-slate-200 p-3 rounded-xl bg-white text-xs shadow-sm">
                       <div className="flex justify-between mb-1.5 font-bold">
-                        <span className="text-slate-950">Empresa A: Century21 Sur</span>
+                        <span className="text-slate-955">Empresa A: Century21 Sur</span>
                         <span className="text-slate-400 font-normal">tnt_c21s</span>
                       </div>
                       <p className="text-slate-600">8 agentes activos • 112 tasaciones en base de datos. Información totalmente invisible para otros tenants.</p>
@@ -422,8 +422,8 @@ export default function CorredoresPage() {
 
       </main>
 
-      {/* Footer */}
-      <footer className="w-full py-8 border-t border-slate-200 bg-white/70 backdrop-blur-md">
+      {/* Footer - Positioned at relative z-10 */}
+      <footer className="relative w-full z-10 py-8 border-t border-slate-200 bg-white/70 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <div className="flex items-center gap-2">
             <Building2 className="w-5 h-5 text-primary" />

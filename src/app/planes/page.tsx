@@ -15,15 +15,15 @@ export default function PlanesPage() {
   };
 
   return (
-    <div className="relative min-h-screen text-slate-800 font-sans overflow-x-hidden flex flex-col justify-between bg-slate-50">
-      {/* Background Video */}
-      <div className="absolute inset-0 -z-20 overflow-hidden">
+    <div className="relative min-h-screen text-slate-800 font-sans overflow-x-hidden flex flex-col justify-between bg-transparent">
+      {/* Background Video - Positioned at z-0 */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 w-auto h-auto"
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2"
         >
           <source src="/videos/VIDEO1.mp4" type="video/mp4" />
         </video>
@@ -32,13 +32,13 @@ export default function PlanesPage() {
       </div>
 
       {/* Ambient soft colored blobs in background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none opacity-50">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-50">
         <div className="absolute top-1/4 left-1/4 -translate-x-1/2 w-[350px] h-[350px] bg-blue-200/40 rounded-full blur-[100px]"></div>
         <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 w-[400px] h-[400px] bg-indigo-150/30 rounded-full blur-[120px]"></div>
       </div>
 
-      {/* Header / Navbar (Light Theme Glass) */}
-      <header className="w-full z-50 border-b border-slate-200/60 bg-white/75 backdrop-blur-md">
+      {/* Header / Navbar (Light Theme Glass) - Positioned at relative z-50 */}
+      <header className="relative w-full z-50 border-b border-slate-200/60 bg-white/75 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="flex items-center gap-2 group">
@@ -51,7 +51,7 @@ export default function PlanesPage() {
             </Link>
             
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Inicio!!</Link>
+              <Link href="/" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Inicio</Link>
               <Link href="/planes" className="text-primary border-b-2 border-primary pb-1 font-semibold text-sm">Planes y Precios</Link>
               <Link href="/corredores" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Para Corredores</Link>
             </div>
@@ -71,8 +71,8 @@ export default function PlanesPage() {
         </div>
       </header>
 
-      {/* Main Content Container */}
-      <div className="flex-1 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex flex-col justify-center">
+      {/* Main Content Container - Positioned at relative z-10 */}
+      <div className="relative z-10 flex-1 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full flex flex-col justify-center">
         {/* Title and Description */}
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 font-semibold text-xs uppercase tracking-wider mb-6 shadow-sm">
@@ -93,7 +93,7 @@ export default function PlanesPage() {
             </span>
             <button
               onClick={() => setEsAnual(!esAnual)}
-              className="relative inline-flex h-7 w-14 items-center rounded-full bg-slate-200 border border-slate-350 hover:bg-slate-300 transition-colors focus:outline-none"
+              className="relative inline-flex h-7 w-14 items-center rounded-full bg-slate-200 border border-slate-300 hover:bg-slate-300 transition-colors focus:outline-none"
             >
               <span
                 className={`inline-block h-5 w-5 transform rounded-full bg-primary transition-transform ${
@@ -302,8 +302,8 @@ export default function PlanesPage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="w-full py-8 border-t border-slate-200 bg-white/70 backdrop-blur-md">
+      {/* Footer - Positioned at relative z-10 */}
+      <footer className="relative w-full z-10 py-8 border-t border-slate-200 bg-white/70 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <div className="flex items-center gap-2">
             <Building2 className="w-5 h-5 text-primary" />
