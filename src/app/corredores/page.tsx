@@ -6,13 +6,11 @@ import {
   CheckCircle2, 
   ArrowRight, 
   Zap, 
-  ShieldAlert,
   Sparkles, 
   TrendingUp, 
   Camera, 
   Users, 
   MapPin, 
-  FileText, 
   Layers
 } from "lucide-react";
 import Link from "next/link";
@@ -33,8 +31,8 @@ export default function CorredoresPage() {
         "Evita captar propiedades fuera de precio que tardan meses en venderse",
         "Gráficos evolutivos del valor del metro cuadrado en la zona"
       ],
-      color: "from-blue-500/20 to-cyan-500/20",
-      borderColor: "border-blue-500/30"
+      color: "from-blue-50/50 to-cyan-50/50",
+      borderColor: "border-blue-200"
     },
     {
       id: "ia-visual",
@@ -48,8 +46,8 @@ export default function CorredoresPage() {
         "Justificación técnica ante bancos y compradores exigentes",
         "Ajuste automático de la fórmula algorítmica en base a la IA"
       ],
-      color: "from-purple-500/20 to-pink-500/20",
-      borderColor: "border-purple-500/30"
+      color: "from-purple-50/50 to-pink-50/50",
+      borderColor: "border-purple-200"
     },
     {
       id: "multi-tenant",
@@ -63,15 +61,15 @@ export default function CorredoresPage() {
         "Plantilla de PDF marca blanca unificada con el logo de tu empresa",
         "Auditoría y control de descargas e informes generados"
       ],
-      color: "from-emerald-500/20 to-teal-500/20",
-      borderColor: "border-emerald-500/30"
+      color: "from-emerald-50/50 to-teal-50/50",
+      borderColor: "border-emerald-200"
     }
   ];
 
   const currentModulo = modulos.find(m => m.id === activeTab) || modulos[0];
 
   return (
-    <div className="relative min-h-screen text-slate-100 font-sans overflow-x-hidden flex flex-col justify-between">
+    <div className="relative min-h-screen text-slate-800 font-sans overflow-x-hidden flex flex-col justify-between bg-slate-50">
       {/* Background Video */}
       <div className="absolute inset-0 -z-20 overflow-hidden">
         <video
@@ -83,42 +81,42 @@ export default function CorredoresPage() {
         >
           <source src="/videos/VIDEO2.mp4" type="video/mp4" />
         </video>
-        {/* Dark overlay with glassmorphism blur */}
-        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[4px]"></div>
+        {/* Soft light overlay with glassmorphism blur */}
+        <div className="absolute inset-0 bg-white/80 backdrop-blur-[5px]"></div>
       </div>
 
-      {/* Ambient glowing blobs */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none opacity-40">
-        <div className="absolute top-1/3 right-1/4 translate-x-1/2 w-[380px] h-[380px] bg-blue-500/20 rounded-full blur-[110px]"></div>
-        <div className="absolute bottom-1/3 left-1/4 -translate-x-1/2 w-[420px] h-[420px] bg-emerald-600/10 rounded-full blur-[130px]"></div>
+      {/* Ambient soft colored blobs */}
+      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none opacity-50">
+        <div className="absolute top-1/3 right-1/4 translate-x-1/2 w-[380px] h-[380px] bg-blue-100/40 rounded-full blur-[110px]"></div>
+        <div className="absolute bottom-1/3 left-1/4 -translate-x-1/2 w-[420px] h-[420px] bg-emerald-100/30 rounded-full blur-[130px]"></div>
       </div>
 
-      {/* Header / Navbar */}
-      <header className="w-full z-50 border-b border-white/10 bg-slate-950/40 backdrop-blur-md">
+      {/* Header / Navbar (Light Theme Glass) */}
+      <header className="w-full z-50 border-b border-slate-200/60 bg-white/75 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="flex items-center gap-2 group">
-              <div className="bg-blue-600/20 p-2.5 rounded-xl border border-blue-500/30 group-hover:bg-blue-600/30 transition-all">
-                <Building2 className="w-6 h-6 text-blue-400 group-hover:scale-110 transition-transform" />
+              <div className="bg-blue-50 p-2.5 rounded-xl border border-blue-100 group-hover:bg-blue-100 transition-all">
+                <Building2 className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
               </div>
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-300">
+              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700">
                 Valoriza
               </span>
             </Link>
             
             <div className="hidden md:flex items-center gap-8">
-              <Link href="/" className="text-slate-300 hover:text-white font-medium transition-colors text-sm">Inicio!!</Link>
-              <Link href="/planes" className="text-slate-300 hover:text-white font-medium transition-colors text-sm">Planes y Precios</Link>
-              <Link href="/corredores" className="text-white border-b-2 border-blue-500 pb-1 font-semibold text-sm">Para Corredores</Link>
+              <Link href="/" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Inicio!!</Link>
+              <Link href="/planes" className="text-slate-600 hover:text-primary font-medium transition-colors text-sm">Planes y Precios</Link>
+              <Link href="/corredores" className="text-primary border-b-2 border-primary pb-1 font-semibold text-sm">Para Corredores</Link>
             </div>
 
             <div className="flex gap-4 items-center">
-              <Link href="/login" className="text-sm font-semibold text-slate-300 hover:text-white transition-colors">
+              <Link href="/login" className="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">
                 Ingresar
               </Link>
               <Link 
                 href="/registro" 
-                className="text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5"
+                className="text-sm font-semibold text-white bg-primary hover:bg-blue-700 px-5 py-2.5 rounded-full transition-all hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-0.5"
               >
                 Comenzar Gratis
               </Link>
@@ -133,21 +131,21 @@ export default function CorredoresPage() {
         {/* Hero Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center pt-8">
           <div className="max-w-2xl animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-400/25 text-blue-300 font-medium text-xs uppercase tracking-wider mb-6">
-              <Sparkles className="w-3.5 h-3.5 fill-blue-400/20" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 font-semibold text-xs uppercase tracking-wider mb-6 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 fill-blue-500/10" />
               SaaS Especializado para Corretaje
             </div>
-            <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
-              La herramienta definitiva para el <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Corredor de Elite</span>
+            <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-tight">
+              La herramienta definitiva para el <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-600">Corredor de Elite</span>
             </h1>
-            <p className="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 mb-8 leading-relaxed">
               Cierra más exclusivas, elimina las discusiones de precios y destaca frente a tus competidores con tasaciones profesionales en Chile basadas en transacciones reales e Inteligencia Artificial.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 
                 href="/registro" 
-                className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-xl hover:shadow-blue-600/20 transition-all flex items-center justify-center gap-2 active:scale-95"
+                className="bg-primary hover:bg-blue-755 text-white px-8 py-4 rounded-2xl font-bold hover:shadow-xl hover:shadow-blue-500/20 transition-all flex items-center justify-center gap-2 active:scale-95 text-center"
               >
                 Comenzar Gratis ahora
                 <ArrowRight className="w-5 h-5" />
@@ -155,7 +153,7 @@ export default function CorredoresPage() {
               <Link 
                 href="https://wa.me/56912345678" 
                 target="_blank"
-                className="bg-slate-900/60 hover:bg-slate-900/80 text-white border border-white/10 hover:border-white/20 px-8 py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2"
+                className="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200/80 px-8 py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 shadow-sm text-center"
               >
                 Agendar Demo
               </Link>
@@ -163,59 +161,59 @@ export default function CorredoresPage() {
           </div>
 
           {/* Interactive Metric Cards (Showcase) */}
-          <div className="relative bg-slate-900/40 border border-white/10 p-6 sm:p-8 rounded-3xl backdrop-blur-xl hover:border-white/20 transition-all duration-500 shadow-2xl">
-            <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-emerald-500 text-slate-950 font-bold text-xs px-3 py-1.5 rounded-xl uppercase tracking-wider shadow-lg flex items-center gap-1">
+          <div className="relative bg-white/80 border border-slate-200/80 p-6 sm:p-8 rounded-3xl backdrop-blur-xl hover:border-slate-350 transition-all duration-500 shadow-xl shadow-slate-200/40">
+            <div className="absolute top-0 right-0 -mt-4 -mr-4 bg-emerald-500 text-white font-bold text-xs px-3.5 py-1.5 rounded-xl uppercase tracking-wider shadow-md flex items-center gap-1">
               <TrendingUp className="w-3.5 h-3.5" />
               +32% Exclusividad
             </div>
             
-            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-500 animate-pulse"></span>
+            <h3 className="text-base font-bold text-slate-900 mb-6 flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
               Panel Consolidado de Oficina (Corredores Asociados)
             </h3>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="bg-white/5 border border-white/5 p-4 rounded-2xl">
-                <span className="text-slate-400 text-xs font-semibold block mb-1">Tasaciones este Mes</span>
-                <span className="text-3xl font-black text-white">184</span>
-                <span className="text-xs text-emerald-400 font-medium block mt-1">↑ 18% vs mes anterior</span>
+              <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl">
+                <span className="text-slate-500 text-xs font-semibold block mb-1">Tasaciones este Mes</span>
+                <span className="text-3xl font-black text-slate-900">184</span>
+                <span className="text-xs text-emerald-600 font-semibold block mt-1">↑ 18% vs mes anterior</span>
               </div>
-              <div className="bg-white/5 border border-white/5 p-4 rounded-2xl">
-                <span className="text-slate-400 text-xs font-semibold block mb-1">Tasa de Captación</span>
-                <span className="text-3xl font-black text-white">84.2%</span>
-                <span className="text-xs text-emerald-400 font-medium block mt-1">Líder en Santiago Oriente</span>
+              <div className="bg-slate-50 border border-slate-100 p-4 rounded-2xl">
+                <span className="text-slate-500 text-xs font-semibold block mb-1">Tasa de Captación</span>
+                <span className="text-3xl font-black text-slate-900">84.2%</span>
+                <span className="text-xs text-emerald-600 font-semibold block mt-1">Líder en Santiago Oriente</span>
               </div>
             </div>
 
             <div className="space-y-4">
               <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Actividad de Agentes Reciente</h4>
               
-              <div className="flex items-center justify-between text-sm bg-white/5 border border-white/5 px-4 py-3 rounded-xl">
+              <div className="flex items-center justify-between text-sm bg-slate-50 border border-slate-100 px-4 py-3 rounded-xl">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/20 text-blue-300 font-black flex items-center justify-center text-xs">
-                    SM
+                  <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-black flex items-center justify-center text-xs">
+                    SL
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Sofía Lagos</p>
-                    <p className="text-slate-400 text-xs">Tasación Providencia (Excelente)</p>
+                    <p className="font-semibold text-slate-900">Sofía Lagos</p>
+                    <p className="text-slate-500 text-xs">Tasación Providencia (Excelente)</p>
                   </div>
                 </div>
-                <span className="text-emerald-400 font-bold bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-md text-xs">
+                <span className="text-emerald-700 font-bold bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-md text-xs">
                   Completado
                 </span>
               </div>
 
-              <div className="flex items-center justify-between text-sm bg-white/5 border border-white/5 px-4 py-3 rounded-xl">
+              <div className="flex items-center justify-between text-sm bg-slate-50 border border-slate-100 px-4 py-3 rounded-xl">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-purple-500/20 text-purple-300 font-black flex items-center justify-center text-xs">
+                  <div className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 font-black flex items-center justify-center text-xs">
                     CM
                   </div>
                   <div>
-                    <p className="font-semibold text-white">Carlos Muñoz</p>
-                    <p className="text-slate-400 text-xs">Scraper CBR Las Condes (20 transacciones)</p>
+                    <p className="font-semibold text-slate-900">Carlos Muñoz</p>
+                    <p className="text-slate-500 text-xs">Scraper CBR Las Condes (20 transacciones)</p>
                   </div>
                 </div>
-                <span className="text-blue-400 font-bold bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-md text-xs">
+                <span className="text-primary font-bold bg-blue-50 border border-blue-250 px-2 py-0.5 rounded-md text-xs">
                   Extrayendo
                 </span>
               </div>
@@ -224,18 +222,18 @@ export default function CorredoresPage() {
         </div>
 
         {/* Tabbed Interactive Feature Section */}
-        <div className="border border-white/10 rounded-3xl p-6 sm:p-10 bg-slate-900/35 backdrop-blur-xl">
+        <div className="border border-slate-200/80 rounded-3xl p-6 sm:p-10 bg-white/70 backdrop-blur-xl shadow-lg">
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-4">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-4">
               Herramientas creadas específicamente para Chile
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base">
+            <p className="text-slate-600 text-sm sm:text-base">
               Selecciona uno de nuestros pilares tecnológicos y descubre cómo resolverá tus operaciones diarias de corretaje.
             </p>
           </div>
 
           {/* Tab buttons */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10 border-b border-white/10 pb-6">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10 border-b border-slate-200/80 pb-6">
             {modulos.map((modulo) => {
               const Icon = modulo.icon;
               return (
@@ -244,8 +242,8 @@ export default function CorredoresPage() {
                   onClick={() => setActiveTab(modulo.id)}
                   className={`flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all ${
                     activeTab === modulo.id
-                      ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25"
-                      : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/5"
+                      ? "bg-primary text-white shadow-lg shadow-blue-500/25"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-800 border border-slate-200/40"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -259,17 +257,17 @@ export default function CorredoresPage() {
           <div className={`grid md:grid-cols-2 gap-8 items-center bg-gradient-to-br ${currentModulo.color} border ${currentModulo.borderColor} p-6 sm:p-8 rounded-2xl transition-all duration-500`}>
             
             <div className="space-y-6">
-              <h3 className="text-2xl sm:text-3xl font-black text-white leading-tight">
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 leading-tight">
                 {currentModulo.headline}
               </h3>
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
                 {currentModulo.description}
               </p>
               
               <ul className="space-y-3">
                 {currentModulo.bullets.map((bullet, idx) => (
-                  <li key={idx} className="flex gap-2 text-sm text-slate-200 items-start">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <li key={idx} className="flex gap-2 text-sm text-slate-700 items-start">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                     <span>{bullet}</span>
                   </li>
                 ))}
@@ -277,77 +275,77 @@ export default function CorredoresPage() {
             </div>
 
             {/* Graphic/Visual Showcase for the current feature */}
-            <div className="bg-slate-950/70 border border-white/10 p-6 rounded-2xl backdrop-blur-md">
+            <div className="bg-white border border-slate-200/80 p-6 rounded-2xl shadow-md">
               {activeTab === "captacion" && (
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-3 border-b border-white/5">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                  <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-primary" />
                       Av. Vitacura 5400, Vitacura
                     </span>
-                    <span className="text-xs font-bold text-emerald-400">24 comparables</span>
+                    <span className="text-xs font-bold text-emerald-600">24 comparables</span>
                   </div>
 
                   <div className="space-y-3">
-                    <div className="bg-white/5 p-3 rounded-xl border border-white/5 text-xs flex justify-between items-center">
+                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs flex justify-between items-center">
                       <div>
-                        <p className="font-semibold text-white">Depto. 702 - Vendido CBR 2025</p>
-                        <p className="text-slate-400 mt-0.5">85 m² • 3 Dorms • 2 Baños</p>
+                        <p className="font-semibold text-slate-950">Depto. 702 - Vendido CBR 2025</p>
+                        <p className="text-slate-500 mt-0.5">85 m² • 3 Dorms • 2 Baños</p>
                       </div>
-                      <span className="text-sm font-bold text-white">6.450 UF</span>
+                      <span className="text-sm font-bold text-slate-800">6.450 UF</span>
                     </div>
 
-                    <div className="bg-white/5 p-3 rounded-xl border border-white/5 text-xs flex justify-between items-center">
+                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs flex justify-between items-center">
                       <div>
-                        <p className="font-semibold text-white">Depto. 305 - Vendido CBR 2025</p>
-                        <p className="text-slate-400 mt-0.5">82 m² • 3 Dorms • 2 Baños</p>
+                        <p className="font-semibold text-slate-950">Depto. 305 - Vendido CBR 2025</p>
+                        <p className="text-slate-500 mt-0.5">82 m² • 3 Dorms • 2 Baños</p>
                       </div>
-                      <span className="text-sm font-bold text-white">6.380 UF</span>
+                      <span className="text-sm font-bold text-slate-800">6.380 UF</span>
                     </div>
 
-                    <div className="bg-white/5 p-3 rounded-xl border border-white/5 text-xs flex justify-between items-center">
+                    <div className="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs flex justify-between items-center">
                       <div>
-                        <p className="font-semibold text-white">Depto. 1104 - Vendido CBR 2024</p>
-                        <p className="text-slate-400 mt-0.5">88 m² • 3 Dorms • 2 Baños</p>
+                        <p className="font-semibold text-slate-950">Depto. 1104 - Vendido CBR 2024</p>
+                        <p className="text-slate-500 mt-0.5">88 m² • 3 Dorms • 2 Baños</p>
                       </div>
-                      <span className="text-sm font-bold text-white">6.250 UF</span>
+                      <span className="text-sm font-bold text-slate-800">6.250 UF</span>
                     </div>
                   </div>
 
-                  <div className="bg-blue-600/10 border border-blue-500/20 p-3.5 rounded-xl text-center">
-                    <p className="text-xs text-blue-300 font-semibold">Valor Sugerido para tu Captación:</p>
-                    <p className="text-2xl font-black text-white mt-1">6.350 UF</p>
+                  <div className="bg-blue-50 border border-blue-100 p-3.5 rounded-xl text-center">
+                    <p className="text-xs text-blue-700 font-semibold">Valor Sugerido para tu Captación:</p>
+                    <p className="text-2xl font-black text-slate-900 mt-1">6.350 UF</p>
                   </div>
                 </div>
               )}
 
               {activeTab === "ia-visual" && (
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-3 border-b border-white/5">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                      <Camera className="w-3.5 h-3.5 text-purple-400" />
+                  <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                      <Camera className="w-3.5 h-3.5 text-purple-650" />
                       Análisis de Fotos del Inmueble (IA)
                     </span>
-                    <span className="text-xs font-bold text-purple-400">IA Activa</span>
+                    <span className="text-xs font-bold text-purple-650">IA Activa</span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2">
-                    <div className="relative rounded-xl border border-white/10 overflow-hidden h-28 flex items-center justify-center bg-slate-900">
-                      <span className="text-[10px] text-slate-400 absolute bottom-1.5 left-1.5 bg-slate-950/70 px-2 py-0.5 rounded-md font-semibold">Living - Excelente (92%)</span>
+                    <div className="relative rounded-xl border border-slate-200 overflow-hidden h-28 flex items-center justify-center bg-slate-100">
+                      <span className="text-[10px] text-slate-700 absolute bottom-1.5 left-1.5 bg-white/90 border border-slate-150 px-2 py-0.5 rounded-md font-bold shadow-sm">Living - Excelente (92%)</span>
                     </div>
-                    <div className="relative rounded-xl border border-white/10 overflow-hidden h-28 flex items-center justify-center bg-slate-900">
-                      <span className="text-[10px] text-slate-400 absolute bottom-1.5 left-1.5 bg-slate-950/70 px-2 py-0.5 rounded-md font-semibold">Cocina - Remodelada (95%)</span>
+                    <div className="relative rounded-xl border border-slate-200 overflow-hidden h-28 flex items-center justify-center bg-slate-100">
+                      <span className="text-[10px] text-slate-700 absolute bottom-1.5 left-1.5 bg-white/90 border border-slate-150 px-2 py-0.5 rounded-md font-bold shadow-sm">Cocina - Remodelada (95%)</span>
                     </div>
                   </div>
 
-                  <div className="bg-purple-600/15 border border-purple-500/20 p-3.5 rounded-xl text-xs space-y-2">
+                  <div className="bg-purple-50 border border-purple-100 p-3.5 rounded-xl text-xs space-y-2">
                     <div className="flex justify-between font-semibold">
-                      <span className="text-purple-300">Calidad de Terminaciones:</span>
-                      <span className="text-white">Premium (Top 10%)</span>
+                      <span className="text-purple-700">Calidad de Terminaciones:</span>
+                      <span className="text-slate-900">Premium (Top 10%)</span>
                     </div>
                     <div className="flex justify-between font-semibold">
-                      <span className="text-purple-300">Factor de Depreciación (Desgaste):</span>
-                      <span className="text-white">-2.1% (Muy bajo)</span>
+                      <span className="text-purple-700">Factor de Depreciación (Desgaste):</span>
+                      <span className="text-slate-900">-2.1% (Muy bajo)</span>
                     </div>
                   </div>
                 </div>
@@ -355,33 +353,33 @@ export default function CorredoresPage() {
 
               {activeTab === "multi-tenant" && (
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center pb-3 border-b border-white/5">
-                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                      <Layers className="w-3.5 h-3.5 text-emerald-400" />
+                  <div className="flex justify-between items-center pb-3 border-b border-slate-100">
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+                      <Layers className="w-3.5 h-3.5 text-emerald-600" />
                       Aislamiento Multi-Tenant de Datos
                     </span>
-                    <span className="text-xs font-bold text-emerald-400">100% Aislado</span>
+                    <span className="text-xs font-bold text-emerald-600">100% Aislado</span>
                   </div>
 
                   <div className="space-y-2.5">
-                    <div className="border border-white/10 p-3 rounded-xl bg-slate-900/60 text-xs">
+                    <div className="border border-slate-200 p-3 rounded-xl bg-white text-xs shadow-sm">
                       <div className="flex justify-between mb-1.5 font-bold">
-                        <span className="text-white">Empresa A: Century21 Sur</span>
-                        <span className="text-slate-500">TenantID: tnt_c21s</span>
+                        <span className="text-slate-950">Empresa A: Century21 Sur</span>
+                        <span className="text-slate-400 font-normal">tnt_c21s</span>
                       </div>
-                      <p className="text-slate-400">8 agentes activos • 112 tasaciones en base de datos. Información totalmente invisible para otros tenants.</p>
+                      <p className="text-slate-600">8 agentes activos • 112 tasaciones en base de datos. Información totalmente invisible para otros tenants.</p>
                     </div>
 
-                    <div className="border border-white/5 p-3 rounded-xl bg-slate-900/30 text-xs opacity-60">
-                      <div className="flex justify-between mb-1.5 font-bold">
-                        <span className="text-slate-400">Empresa B: RE/MAX Norte</span>
-                        <span className="text-slate-600">TenantID: tnt_remn</span>
+                    <div className="border border-slate-100 p-3 rounded-xl bg-slate-50 text-xs opacity-60">
+                      <div className="flex justify-between mb-1.5 font-bold text-slate-400">
+                        <span>Empresa B: RE/MAX Norte</span>
+                        <span className="font-normal">tnt_remn</span>
                       </div>
-                      <p className="text-slate-600">15 agentes activos • 218 tasaciones en base de datos.</p>
+                      <p className="text-slate-400">15 agentes activos • 218 tasaciones en base de datos.</p>
                     </div>
                   </div>
 
-                  <div className="bg-emerald-500/10 border border-emerald-500/20 p-2.5 rounded-xl text-center text-xs font-semibold text-emerald-300">
+                  <div className="bg-emerald-50 border border-emerald-100 p-2.5 rounded-xl text-center text-xs font-semibold text-emerald-700">
                     Garantía estricta de seguridad bancaria y propiedad intelectual.
                   </div>
                 </div>
@@ -392,21 +390,21 @@ export default function CorredoresPage() {
         </div>
 
         {/* Closing CTA */}
-        <div className="bg-gradient-to-br from-blue-600/30 via-indigo-950/20 to-slate-900/40 border border-blue-500/30 rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-xl shadow-blue-500/5">
-          <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="bg-gradient-to-br from-blue-50 via-indigo-50/30 to-slate-150/40 border border-blue-200 rounded-3xl p-8 sm:p-14 text-center relative overflow-hidden shadow-xl shadow-slate-200/30">
+          <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-emerald-100/20 rounded-full blur-3xl pointer-events-none"></div>
           
           <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
               ¿Listo para dar el salto tecnológico en tu corretaje?
             </h2>
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
               Únete a las corredoras líderes de propiedades en Chile que ya están captando un 30% más rápido mediante tasaciones instantáneas avaladas por datos empíricos.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link 
                 href="/registro" 
-                className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl hover:shadow-blue-500/25 transition-all flex items-center justify-center gap-2 active:scale-95 text-lg"
+                className="bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl hover:shadow-blue-500/25 transition-all flex items-center justify-center gap-2 active:scale-95 text-lg"
               >
                 Prueba Gratuita (3 tasaciones/mes)
                 <ArrowRight className="w-5 h-5" />
@@ -414,7 +412,7 @@ export default function CorredoresPage() {
               <Link 
                 href="https://wa.me/56912345678" 
                 target="_blank"
-                className="bg-white/10 hover:bg-white/15 text-white border border-white/10 px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center shadow-sm text-lg"
+                className="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center shadow-sm text-lg"
               >
                 Agendar Demostración
               </Link>
@@ -425,11 +423,11 @@ export default function CorredoresPage() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full py-8 border-t border-white/10 bg-slate-950/60 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-400">
+      <footer className="w-full py-8 border-t border-slate-200 bg-white/70 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-slate-500">
           <div className="flex items-center gap-2">
-            <Building2 className="w-5 h-5 text-blue-500" />
-            <span className="text-white font-bold">Valoriza SaaS</span>
+            <Building2 className="w-5 h-5 text-primary" />
+            <span className="text-slate-900 font-bold">Valoriza SaaS</span>
           </div>
           <p>© {new Date().getFullYear()} Todos los derechos reservados. Optimizado para corredores en Chile.</p>
         </div>
