@@ -17,9 +17,9 @@ export default function Home() {
               </span>
             </div>
             <div className="hidden md:flex items-center gap-8">
-              <Link href="#como-funciona" className="text-slate-600 hover:text-primary font-medium transition-colors">Cómo funciona</Link>
-              <Link href="#planes" className="text-slate-600 hover:text-primary font-medium transition-colors">Planes</Link>
-              <Link href="#para-corredores" className="text-slate-600 hover:text-primary font-medium transition-colors">Para Corredores</Link>
+              <Link href="#inicio" className="text-slate-600 hover:text-primary font-medium transition-colors">Inicio!!</Link>
+              <Link href="/planes" className="text-slate-600 hover:text-primary font-medium transition-colors">Planes</Link>
+              <Link href="/corredores" className="text-slate-600 hover:text-primary font-medium transition-colors">Para Corredores</Link>
               <div className="flex items-center gap-4">
                 <Link href="/login" className="text-slate-600 hover:text-primary font-medium transition-colors">Ingresar</Link>
                 <Link href="/registro" className="bg-primary text-white px-5 py-2.5 rounded-full font-medium hover:bg-blue-700 transition-all hover:shadow-lg hover:-translate-y-0.5">
@@ -32,7 +32,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section id="inicio" className="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
             <div className="max-w-2xl animate-fade-in">
