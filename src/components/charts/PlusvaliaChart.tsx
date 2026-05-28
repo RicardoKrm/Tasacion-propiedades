@@ -46,7 +46,7 @@ export function PlusvaliaChart() {
           <Tooltip 
             contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
             labelStyle={{ fontWeight: 'bold', color: '#0f172a' }}
-            formatter={(value: number) => [`${value} UF/m²`, 'Precio Promedio']}
+            formatter={(value: any) => [`${value} UF/m²`, 'Precio Promedio']}
           />
           <Area 
             type="monotone" 
